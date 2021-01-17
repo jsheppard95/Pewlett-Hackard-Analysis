@@ -5,15 +5,15 @@ dept_name varchar
 
 Dept_Emp
 -
-emp_no int pk fk -< Employees.emp_no
-dept_no varchar pk fk -< Departments.dept_no 
+emp_no int pk fk >- Employees.emp_no
+dept_no varchar pk fk >- Departments.dept_no 
 from_date date
 to_date date
 
 Managers
 -
 dept_no varchar pk fk - Departments.dept_no
-emp_no int pk fk - Employees.emp_no
+emp_no int fk - Employees.emp_no
 from_date date
 to_date date
 
@@ -28,14 +28,14 @@ hire_date date
 
 Salaries
 -
-emp_no int pk fk - Employees.emp_no fk - Dept_Emp.emp_no fk - Titles.emp_no
+emp_no int pk fk - Employees.emp_no fk
 salary int
 from_date date
 to_date date
 
 Titles
 -
-emp_no int pk fk -< Employees.emp_no
+emp_no int pk fk >- Employees.emp_no
 title pk varchar
 from_date pk date
 to_date date
