@@ -25,7 +25,7 @@ diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [sch
   - Output Table: [retirement_titles.png](Resources/retirement_titles.png)
 - Retirement-Eligible Employees with Titles (Unique - Most Recent Title)
   - Output File: [unique_titles.csv](Data/unique_titles.csv)
-  - Output Table: [unique_title.png](Resources/unique_titles.png)
+  - Output Table: [unique_titles.png](Resources/unique_titles.png)
 - Number of Retirement-Eligible Employees by Most Recent Title
   - Output File: [retiring_titles.csv](Data/retiring_titles.csv)
   - Output Table: [retiring_titles.png](Resources/retiring_titles.png)
