@@ -30,6 +30,9 @@ FROM unique_titles as ut
 GROUP BY ut.title
 ORDER BY COUNT(ut.title) DESC;
 
+-- Total number of roles that need to be filled
+SELECT SUM(count) FROM retiring_titles;
+
 -- Deliverable 2: Employees Eligible for the Mentorship Program
 -- Table of employees born 1965-01-01 to 1965-12-31
 SELECT DISTINCT ON (e.emp_no) e.emp_no,
