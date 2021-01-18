@@ -58,3 +58,65 @@ SELECT COUNT(me.title), me.title
 FROM mentorship_eligibility as me
 GROUP BY me.title
 ORDER BY COUNT(me.title) DESC;
+
+-- Employees with departments eligible for retirement
+DROP TABLE retirement_departments;
+SELECT e.emp_no,
+	e.first_name,
+	e.last_name,
+	de.to_date,
+	d.dept_name
+INTO retirement_departments
+FROM employees as e
+INNER JOIN dept_emp as de
+ON (e.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+WHERE e.birth_date BETWEEN '1952-01-01' AND '1955-12-31'
+ORDER BY e.emp_no;
+-- View the table
+SELECT * FROM retirement_departments;
+
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (rd.emp_no) rd.emp_no,
+	rd.first_name,
+	rd.last_name,
+	rd.dept_name
+INTO unique_departments
+FROM retirement_departments as rd
+ORDER BY rd.emp_no, rd.to_date DESC;
+-- View the table
+SELECT * FROM unique_departments;
+
+-- Retrieve number of employees by most recent department
+-- who are eligible for retirement
+SELECT COUNT(ud.dept_name), ud.dept_name
+INTO retiring_departments
+FROM unique_departments as ud
+GROUP BY ud.dept_name
+ORDER BY COUNT(ud.dept_name) DESC;
+-- View the table
+SELECT * FROM retiring_departments;
+
+-- Employees eligible for mentorship program with most recent department
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+	e.first_name,
+	e.last_name,
+	d.dept_name
+INTO mentorship_dept_eligibility
+FROM employees as e
+INNER JOIN dept_emp as de
+ON (e.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+	AND (de.to_date = '9999-01-01')
+ORDER BY e.emp_no, de.to_date DESC;
+-- View the table
+SELECT * FROM mentorship_dept_eligibility;
+
+-- Count of employees eligible for mentorship program by department
+SELECT COUNT(mde.dept_name), mde.dept_name
+FROM mentorship_dept_eligibility as mde
+GROUP BY mde.dept_name
+ORDER BY COUNT(mde.dept_name) DESC;
