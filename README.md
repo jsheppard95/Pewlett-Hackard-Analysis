@@ -34,3 +34,7 @@ diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [sch
   - Output Table: [mentorship_eligibility.png](Resources/mentorship_eligibility.png)
 
 ## Summary
+We see using the SQL command `SELECT SUM(count) FROM retiring_titles;` that there are a total of 90,398 positions spanning seven different titles
+that will need to be filled due to retiring employees. At first glance, we see in `mentorship_eligibility` that there are only 1,549
+retirement-ready employees also eligible to mentor younger employees, but this may cover a wide enough distribution of the various departments for
+effective training.
