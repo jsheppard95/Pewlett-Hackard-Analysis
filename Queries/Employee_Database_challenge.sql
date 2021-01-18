@@ -60,7 +60,6 @@ GROUP BY me.title
 ORDER BY COUNT(me.title) DESC;
 
 -- Employees with departments eligible for retirement
-DROP TABLE retirement_departments;
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
