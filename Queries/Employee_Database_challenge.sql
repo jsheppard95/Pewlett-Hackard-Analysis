@@ -21,3 +21,11 @@ SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
 INTO unique_titles
 FROM retirement_titles as rt
 ORDER BY rt.emp_no, rt.to_date DESC;
+
+-- Retrieve number of employees by most recent job title
+-- who are eligible for retirement
+SELECT COUNT(ut.title), ut.title
+INTO retiring_titles
+FROM unique_titles as ut
+GROUP BY ut.title
+ORDER BY COUNT(ut.title) DESC;
