@@ -2,8 +2,8 @@
 
 ## Overview of the analysis
 Here we perform an analysis of company data using PostgreSQL to generate a list of the employees eligible for retirement, a breakdown of the number of
-retiring employees by title, and list of the employees eligible for the mentorship program for training to replace retiring managers and other company
-members with positions requiring significant experience. We consider the six input data files noted below and summarized in the entity relationship
+retiring employees by title, and a list of the employees eligible for the mentorship program in order to replace retiring managers and other company
+members with positions requiring significant experience. We consider the six input data files listed below and summarized in the entity relationship
 diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [schema.sql](schema.sql) which we then query using
 [Employee_Database_challenge.sql](Queries/Employee_Database_challenge.sql) to produce the desired retirement information.
 
@@ -36,8 +36,8 @@ diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [sch
 ## Summary
 
 ### Retiring Employees By Title
-We see using the SQL command `SELECT SUM(count) FROM retiring_titles;` that there are a total of 90,398 positions spanning seven different titles
-that will need to be filled due to retiring employees. At first glance, we see in `mentorship_eligibility` that there are only 1,549
+We find from the command `SELECT SUM(count) FROM retiring_titles;` that there are a total of 90,398 positions spanning seven different titles
+that will need to be filled due to retiring employees. At a first glance, we see in `mentorship_eligibility` that there are only 1,549
 retirement-ready employees also eligible to mentor younger employees, and so we check distribution of the number of mentorship program-eligible
 employees by title using the following query:
 ```
@@ -70,8 +70,8 @@ ON (de.dept_no = d.dept_no)
 WHERE e.birth_date BETWEEN '1952-01-01' AND '1955-12-31'
 ORDER BY e.emp_no;
 ```
-We then remove duplicate entries to retain that with the employee's most recent department, and from the resulting table we count the number of retirement
-eligible employees in each, as shown in the table [retiring_departments.png](Resources/retiring_departments.png). Similarly, we obtain the number of
+We then remove duplicate entries retaining that with the employee's most recent department. From the resulting table, we count the number of retirement
+eligible employees in each department as shown in the table [retiring_departments.png](Resources/retiring_departments.png). Similarly, we obtain the number of
 retirement-ready employees also eligible for the mentorship program as shown in the table
 [mentorship_departments_count.png](Resources/mentorship_departments_count.png). We thus see that while the company does not have experienced managers eligible
 for the mentorship program, the distribution of experienced potential mentors covers each department with potentially opening positions, leading to a more
