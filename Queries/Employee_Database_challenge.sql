@@ -52,3 +52,9 @@ ORDER BY e.emp_no, ti.to_date DESC;
 -- Deliverable 3: Summary/Additional Queries
 -- Total number of roles that need to be filled
 SELECT SUM(count) FROM retiring_titles;
+
+-- Count of employees eligible for mentorship program by title
+SELECT COUNT(me.title), me.title
+FROM mentorship_eligibility as me
+GROUP BY me.title
+ORDER BY COUNT(me.title) DESC;
