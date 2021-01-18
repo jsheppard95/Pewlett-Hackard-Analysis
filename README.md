@@ -55,6 +55,7 @@ We can run similar queries to those which generated the number of employees elig
 generate tables of these counts by department. We first use the following query to generate a list of all employees eligible for retirement and their
 department:
 ```
+-- Employees with departments eligible for retirement
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
