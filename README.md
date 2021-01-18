@@ -20,5 +20,8 @@ diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [sch
   - [QuickDBD](https://www.quickdatabasediagrams.com/)
 
 ## Results
+- Number of Retiring Employees by Title
+  - Output File: [retirement_titles.csv](Data/retirement_titles.csv)
+  - Output Table: 
 
 ## Summary
