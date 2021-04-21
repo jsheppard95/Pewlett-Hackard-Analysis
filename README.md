@@ -17,21 +17,22 @@ diagram [EmployeeDB.png](EmployeeDB.png). This leads to the tables shown in [sch
   - [titles.csv](Data/titles.csv)
 - Software:
   - PostgreSQL 11.10
+  - pgAdmin4 4.28.0
   - [QuickDBD](https://www.quickdatabasediagrams.com/)
 
 ## Results
 - Retirement-Eligible Employees with Titles
   - Output File: [retirement_titles.csv](Data/retirement_titles.csv)
-  - Output Table: [retirement_titles.png](Resources/retirement_titles.png)
+  - Output Table: [retirement_titles.png](Images/retirement_titles.png)
 - Retirement-Eligible Employees with Titles (Unique - Most Recent Title)
   - Output File: [unique_titles.csv](Data/unique_titles.csv)
-  - Output Table: [unique_titles.png](Resources/unique_titles.png)
+  - Output Table: [unique_titles.png](Images/unique_titles.png)
 - Number of Retirement-Eligible Employees by Most Recent Title
   - Output File: [retiring_titles.csv](Data/retiring_titles.csv)
-  - Output Table: [retiring_titles.png](Resources/retiring_titles.png)
+  - Output Table: [retiring_titles.png](Images/retiring_titles.png)
 - Employees Eligible for Mentorship Program
   - Output File: [mentorship_eligibility.csv](Data/mentorship_eligibility.csv)
-  - Output Table: [mentorship_eligibility.png](Resources/mentorship_eligibility.png)
+  - Output Table: [mentorship_eligibility.png](Images/mentorship_eligibility.png)
 
 ## Summary
 
@@ -47,7 +48,7 @@ FROM mentorship_eligibility as me
 GROUP BY me.title
 ORDER BY COUNT(me.title) DESC;
 ```
-This results in the table shown in [mentorship_titles.png](Resources/mentorship_titles.png). We thus see there are zero retirement-ready managers that
+This results in the table shown in [mentorship_titles.png](Images/mentorship_titles.png). We thus see there are zero retirement-ready managers that
 are also eligible for the mentorship program, indicating a gap in the ability to train the next generation of employees.
 
 ### Retiring Employees By Department
@@ -71,8 +72,8 @@ WHERE e.birth_date BETWEEN '1952-01-01' AND '1955-12-31'
 ORDER BY e.emp_no;
 ```
 We then remove duplicate entries retaining that with the employee's most recent department. From the resulting table, we count the number of retirement
-eligible employees in each department as shown in the table [retiring_departments.png](Resources/retiring_departments.png). Similarly, we obtain the number of
+eligible employees in each department as shown in the table [retiring_departments.png](Images/retiring_departments.png). Similarly, we obtain the number of
 retirement-ready employees also eligible for the mentorship program as shown in the table
-[mentorship_departments_count.png](Resources/mentorship_departments_count.png). We thus see that while the company does not have experienced managers eligible
+[mentorship_departments_count.png](Images/mentorship_departments_count.png). We thus see that while the company does not have experienced managers eligible
 for the mentorship program, the distribution of experienced potential mentors covers each department with potentially opening positions, leading to a more
 productive training process.
